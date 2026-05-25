@@ -1,0 +1,349 @@
+/* ============================================================
+   Halo Studio — Design Tokens
+   Single source of truth for color, type, spacing, radius,
+   shadow, and motion. Import this file (or copy vars) into
+   any Halo surface.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+
+@font-face {
+  font-family: 'Cas Calisaya';
+  src: url('fonts/Cas-Calisaya.otf') format('opentype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- COLOR — Ground & Surface ---------- */
+  --ground-0:  #050505;   /* page background */
+  --ground-1:  #0a0a0a;   /* alt page bg / section break */
+  --surface-1: #111111;   /* card */
+  --surface-2: #161616;   /* card-on-card / popover */
+  --surface-3: #1d1d1d;   /* hover lift / input */
+  --surface-4: #242424;   /* pressed / nested */
+
+  /* ---------- COLOR — Foreground ---------- */
+  --fg-1: #f5f5f5;   /* primary text, headlines */
+  --fg-2: #a8a8a8;   /* body, sub-copy */
+  --fg-3: #6a6a6a;   /* tertiary, captions, placeholder */
+  --fg-4: #3d3d3d;   /* disabled */
+
+  /* ---------- COLOR — Borders ---------- */
+  --border-1: rgba(255, 255, 255, 0.06);   /* default hairline */
+  --border-2: rgba(255, 255, 255, 0.10);   /* slightly stronger */
+  --border-3: rgba(255, 255, 255, 0.18);   /* hover / focus */
+  --border-inset-top: rgba(255, 255, 255, 0.06); /* top-edge highlight */
+
+  /* ---------- COLOR — Single Accent (monochrome amber scale) ---------- */
+  /* Halo runs ONE accent — a tight scale of warm amber, used like ink. */
+  --amber-50:  #fff3e6;   /* near-white tint, brightest highlight */
+  --amber-100: #ffd9a8;   /* hairline highlight on hot edges */
+  --amber-200: #ffb46a;   /* tinted text on dark, hover lift */
+  --amber-300: #ff9a4a;   /* halation core */
+  --amber-400: #ff7a1a;   /* signature accent — the Halo orange */
+  --amber-500: #e85f00;   /* pressed, darker chip fill */
+  --amber-600: #b34500;   /* deep ember, used sparingly */
+  --amber-700: #4a1d00;   /* ember-on-black background hint */
+
+  /* Soft alpha wash, for glow plates + tinted surfaces */
+  --amber-a08: rgba(255, 122, 26, 0.08);
+  --amber-a16: rgba(255, 122, 26, 0.16);
+  --amber-a40: rgba(255, 122, 26, 0.40);
+  --amber-a70: rgba(255, 122, 26, 0.70);
+
+  /* Active accent — defaults to the signature 400 */
+  --accent:    var(--amber-400);
+  --accent-2:  var(--amber-300);
+  --accent-hi: var(--amber-100);
+  --accent-bg: var(--amber-a16);
+
+  /* ---------- COLOR — Semantic ---------- */
+  /* Status uses universally-legible signals (green/yellow/red). The
+     amber accent remains the BRAND voice; these are FUNCTIONAL signals. */
+  --success: #22e07f;   /* go */
+  --warning: #ffc23a;   /* caution */
+  --danger:  #ff4d4d;   /* stop */
+  --info:    var(--amber-300);
+
+  /* ---------- TYPOGRAPHY — Families ---------- */
+  --font-display: 'Cas Calisaya', 'Geist', 'Inter', system-ui, sans-serif;
+  --font-body:    'Geist', 'Inter', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --font-decor:   'Cas Calisaya', 'Geist', sans-serif;  /* big decorative — brand display */
+  --font-italic:  'Instrument Serif', Georgia, serif;   /* italic accent */
+
+  /* ---------- TYPOGRAPHY — Scale (rem, base 16) ---------- */
+  --fs-12: 0.75rem;     /* 12 — kbd, caption */
+  --fs-13: 0.8125rem;   /* 13 — eyebrow, label */
+  --fs-14: 0.875rem;    /* 14 — small body */
+  --fs-15: 0.9375rem;   /* 15 — body */
+  --fs-16: 1rem;        /* 16 — body large */
+  --fs-18: 1.125rem;    /* 18 — lede */
+  --fs-20: 1.25rem;     /* 20 — h6 */
+  --fs-24: 1.5rem;      /* 24 — h5 */
+  --fs-28: 1.75rem;     /* 28 — h4 */
+  --fs-32: 2rem;        /* 32 — h3 */
+  --fs-44: 2.75rem;     /* 44 — h2 */
+  --fs-60: 3.75rem;     /* 60 — h1 */
+  --fs-80: 5rem;        /* 80 — display */
+  --fs-120: 7.5rem;     /* 120 — hero display */
+
+  /* Tracking / leading */
+  --tracking-tight: -0.04em;
+  --tracking-snug:  -0.02em;
+  --tracking-base:   0;
+  --tracking-wide:   0.04em;
+  --tracking-eyebrow:0.12em;
+
+  --leading-tight: 1.05;
+  --leading-snug:  1.2;
+  --leading-base:  1.5;
+  --leading-loose: 1.7;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+  --sp-32:  128px;
+  --sp-40:  160px;
+
+  /* ---------- RADII ---------- */
+  --r-xs:   6px;
+  --r-sm:   10px;
+  --r-md:   14px;
+  --r-lg:   20px;    /* cards, default */
+  --r-xl:   24px;    /* modals */
+  --r-2xl:  32px;
+  --r-pill: 999px;
+
+  /* ---------- SHADOWS & GLOWS ---------- */
+  --inset-top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --inset-strong:        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0,0,0,0.5);
+  --shadow-lg: 0 24px 60px -24px rgba(0,0,0,0.6);
+  --shadow-xl: 0 40px 100px -30px rgba(0,0,0,0.7);
+
+  /* Halation — accent-tinted outer glow */
+  --glow-accent:    0 0 80px -10px var(--accent), 0 0 30px -8px var(--accent);
+  --glow-accent-sm: 0 0 24px -4px var(--accent);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);   /* default */
+  --ease-in:    cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-inout: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --dur-micro: 120ms;
+  --dur-ui:    240ms;
+  --dur-bloom: 600ms;
+  --dur-hero:  900ms;
+
+  /* ---------- LAYOUT ---------- */
+  --container-narrow: 960px;
+  --container-base:   1200px;
+  --container-wide:   1440px;
+  --nav-h:            72px;
+  --sidebar-w:        260px;
+}
+
+/* ============================================================
+   Semantic element styles — drop these on a root and any
+   un-classed h1/h2/p picks up Halo's voice.
+   ============================================================ */
+
+.halo, .halo-root {
+  background: var(--ground-0);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  line-height: var(--leading-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.halo h1, .halo .h1, .halo-h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(var(--fs-44), 7vw, var(--fs-80));
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.halo h2, .halo .h2, .halo-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(var(--fs-32), 4.5vw, var(--fs-60));
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.halo h3, .halo .h3, .halo-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-32);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.halo h4, .halo .h4, .halo-h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-24);
+  line-height: var(--leading-snug);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.halo p, .halo .p {
+  color: var(--fg-2);
+  font-size: var(--fs-15);
+  line-height: var(--leading-base);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.halo .lede {
+  font-size: var(--fs-18);
+  color: var(--fg-2);
+  line-height: var(--leading-base);
+  max-width: 60ch;
+}
+
+.halo .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-13);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-1);
+}
+.halo .eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.halo .accent-italic {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.halo code, .halo .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+.halo small, .halo .caption {
+  font-size: var(--fs-13);
+  color: var(--fg-3);
+}
+
+/* ============================================================
+   Reusable atoms
+   ============================================================ */
+
+.halo .card {
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  box-shadow: var(--inset-top-highlight);
+  padding: var(--sp-6);
+}
+
+.halo .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  border: 1px solid var(--border-2);
+  background: var(--surface-2);
+  color: var(--fg-1);
+  cursor: pointer;
+  transition: transform var(--dur-micro) var(--ease-out),
+              border-color var(--dur-ui) var(--ease-out),
+              background var(--dur-ui) var(--ease-out);
+}
+.halo .btn:hover  { border-color: var(--border-3); background: var(--surface-3); }
+.halo .btn:active { transform: scale(0.98); }
+
+.halo .btn-primary {
+  background: var(--fg-1);
+  color: var(--ground-0);
+  border-color: transparent;
+}
+.halo .btn-primary:hover { background: #fff; }
+
+.halo .btn-accent {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: var(--glow-accent-sm);
+}
+.halo .btn-accent:hover { filter: brightness(1.08); }
+
+.halo .input {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  outline: none;
+  transition: border-color var(--dur-ui) var(--ease-out);
+}
+.halo .input::placeholder { color: var(--fg-3); }
+.halo .input:focus { border-color: var(--border-3); }
+
+/* ============================================================
+   Glow plate — drop as a sibling, position behind hero/CTA
+   ============================================================ */
+.halo .glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, var(--accent) 0%, transparent 60%);
+  opacity: 0.55;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+/* Tonal presets — same amber, different intensity per section. */
+.tone-soft  { --accent: var(--amber-200); --accent-2: var(--amber-100); --accent-bg: var(--amber-a08); }
+.tone-base  { --accent: var(--amber-400); --accent-2: var(--amber-300); --accent-bg: var(--amber-a16); }
+.tone-hot   { --accent: var(--amber-300); --accent-2: var(--amber-100); --accent-bg: var(--amber-a40); }
+.tone-ember { --accent: var(--amber-600); --accent-2: var(--amber-500); --accent-bg: var(--amber-a08); }
